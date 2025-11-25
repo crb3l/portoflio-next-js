@@ -63,7 +63,7 @@ export default function Home() {
       <main className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-16">
         <header
           id="intro"
-          ref={(el) => (sectionsRef.current[0] = el)}
+          ref={(el) => { sectionsRef.current[0] = el }}
           className="min-h-screen flex items-center opacity-0"
         >
           <Card className="px-5 py-5 bg-background/80">
@@ -126,7 +126,7 @@ export default function Home() {
 
         <section
           id="work"
-          ref={(el) => (sectionsRef.current[1] = el)}
+          ref={(el) => { sectionsRef.current[1] = el }}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <Card className="px-5 py-5 bg-background/80">
@@ -204,7 +204,7 @@ export default function Home() {
 
         <section
           id="thoughts"
-          ref={(el) => (sectionsRef.current[2] = el)}
+          ref={(el) => { sectionsRef.current[2] = el }}
           className="min-h-screen py-20 sm:py-32 opacity-0"
         >
           <Card className="px-5 py-5 bg-background/80">
@@ -246,7 +246,7 @@ export default function Home() {
                     <div className="space-y-4">
                       <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
                         <span>{post.date}</span>
-                        <span>{post.readTime}</span>
+                        {/* <span>{post.readTime}</span> */}
                       </div>
 
                       <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
@@ -279,7 +279,7 @@ export default function Home() {
           </Card>
         </section>
 
-        <section id="connect" ref={(el) => (sectionsRef.current[3] = el)} className="py-20 sm:py-32 opacity-0">
+        <section id="connect" ref={(el) => { sectionsRef.current[3] = el }} className="py-20 sm:py-32 opacity-0">
           <Card className="px-5 py-5 bg-background/80">
             <div className="grid lg:grid-cols-2 gap-12 sm:gap-16">
               <div className="space-y-6 sm:space-y-8">
