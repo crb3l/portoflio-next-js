@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useCallback } from "react"
 
-export function WaveBackground() {
+export function WaveBackground({ isDark }: { isDark: boolean }) {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const mouseRef = useRef({ x: 0, y: 0 })
     const animationRef = useRef<number>(0)
@@ -20,8 +20,10 @@ export function WaveBackground() {
         const mouseY = mouseRef.current.y
         const time = Date.now() * 0.002
 
+        const bgColor = isDark ? "#000000" : "#f3f4f6"
+
         // Clear canvas with black
-        ctx.fillStyle = "#000000"
+        ctx.fillStyle = bgColor//"#000000"
         ctx.fillRect(0, 0, width, height)
 
         // Wave parameters
@@ -90,7 +92,7 @@ export function WaveBackground() {
         }
 
         animationRef.current = requestAnimationFrame(draw)
-    }, [])
+    }, [isDark])
 
     useEffect(() => {
         const canvas = canvasRef.current
@@ -129,5 +131,5 @@ export function WaveBackground() {
         }
     }, [draw])
 
-    return <canvas ref={canvasRef} className="fixed inset-0 -z-10" style={{ background: "#000000" }} />
+    return <canvas ref={canvasRef} className="fixed inset-0 -z-10" /*style={{ background: "#000000" }} */ />
 }

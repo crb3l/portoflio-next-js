@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <div className="min-h-screen  text-foreground relative">
       {/* <AnimatedWaveBackground /> */}
-      <WaveBackground />
+      <WaveBackground isDark={isDark} />
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block">
         <div className="flex flex-col gap-4">
           {["intro", "work", "thoughts", "connect"].map((section) => (
@@ -81,9 +81,9 @@ export default function Home() {
                 <div className="space-y-6 max-w-md">
                   <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
                     Software Engineer creating digital solutions at the intersection of
-                    <span className="text-foreground"> design</span>,<span className="text-foreground"> technology</span>,
+                    <span className="text-foreground hover:text-yellow"> design</span>,<span className="text-foreground hover:text-chart-2"> technology</span>,
                     and
-                    <span className="text-foreground"> user experience</span>.
+                    <span className="text-foreground hover:text-chart-4"> user experience</span>.
                   </p>
 
                   <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 text-sm text-muted-foreground">
@@ -100,8 +100,8 @@ export default function Home() {
                 <div className="space-y-4">
                   <div className="text-sm text-muted-foreground font-mono">CURRENTLY</div>
                   <div className="space-y-2">
-                    <div className="text-foreground">Software Engineer</div>
-                    <div className="text-muted-foreground">@ Self-employed</div>
+                    <div className="text-foreground">Software Engineer / Master Student</div>
+                    <div className="text-muted-foreground">@ Self-employed / RTU</div>
                     <div className="text-xs text-muted-foreground">2021 — Present</div>
                   </div>
                 </div>
@@ -142,8 +142,8 @@ export default function Home() {
                     year: "2025",
                     role: "FullStack Developer",
                     company: "Treidee(e)",
-                    description: "Created the fullstack architecture for the whole application.",
-                    tech: ["React", "TypeScript", "Node.js"],
+                    description: "Created the fullstack architecture for the whole application. Managed containerization and deployment.",
+                    tech: ["React", "TypeScript", "Node.js", "Supabase"],
                   },
                   {
                     year: "2022",
@@ -151,6 +151,13 @@ export default function Home() {
                     company: "HASS Web Design",
                     description: "Built performant scripts for automating mundane tasks.",
                     tech: ["React", "Python", "Java"],
+                  },
+                  {
+                    year: "2020/24",
+                    role: "Student",
+                    company: "Technical University of Cluj-Napoca && Universidad Politencica de Cartagena",
+                    description: "Studied as an electronic engineer in Romania and in Spain with an Erasmus scolarship.",
+                    tech: ["Engineering", "Economics", "Management"],
                   },
                   {
                     year: "2018/19",
@@ -220,6 +227,13 @@ export default function Home() {
                     // readTime: "8 min",
                   },
                   {
+                    title: "Tattoo Portfolio",
+                    excerpt: "Simple tattoo portfolio website made for a renowned tatoo artist.",
+                    date: "Ongoing",
+                    url: "https://tattoo.treideee.ro"
+                    // readTime: "8 min",
+                  },
+                  {
                     title: "Automated Motorised Hand for Light Switching",
                     excerpt: "Exploring how automation can help daily tasks.",
                     date: "Ongoing",
@@ -227,21 +241,30 @@ export default function Home() {
 
                   },
                   {
+                    title: "Package Delivery Solution",
+                    excerpt: "Simple website to be used as package delivery representation. Part of bigger fleet management project.",
+                    date: "Ongoing",
+                    url: "https://trainsport.1.treideee.ro"
+                    // readTime: "8 min",
+                  },
+                  {
                     title: "Treidee(e) - 3D Printing Web Application for Amateurs and Enthusiasts",
                     excerpt: "A 3D printing website with custom printing solutions.",
                     date: "Finished",
+                    url: "https://treideee.ro"
                     // readTime: "6 min",
                   },
-                  // {
-                  //   title: "The Art of Code Review",
-                  //   excerpt: "Building better software through thoughtful and constructive code reviews.",
-                  //   date: "Sep 2024",
-                  //   // readTime: "4 min",
-                  // },
+                  {
+                    title: "Brain App - Cognitive improvement in your pocket",
+                    excerpt: "Application meant to improve cognitive functions for users with mental defficiencies",
+                    date: "Finished",
+                    url: "https://github.com/crb3l/brain-app"
+                    // readTime: "4 min",
+                  },
                 ].map((post, index) => (
                   <article
                     key={index}
-                    className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
+                    className="group p-6 sm:p-8 border border-border rounded-lg hover:border-yellow/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
                   >
                     <div className="space-y-4">
                       <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
@@ -253,10 +276,12 @@ export default function Home() {
                         {post.title}
                       </h3>
 
-                      <p className="text-muted-foreground leading-relaxed">{post.excerpt}</p>
+                      <p className="text-justify text-muted-foreground leading-relaxed">{post.excerpt}</p>
 
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                        <span>Read more</span>
+                      <div className="flex items-center gap-2 text-sm text-muted-foreground group-hover:text-yellow transition-colors duration-300">
+                        {/* <Link
+                          href="mailto:test@example.com"> */}
+                        <a href={post.url}>Read more</a>
                         <svg
                           className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
                           fill="none"
@@ -270,6 +295,7 @@ export default function Home() {
                             d="M17 8l4 4m0 0l-4 4m4-4H3"
                           />
                         </svg>
+                        {/* </Link> */}
                       </div>
                     </div>
                   </article>
@@ -286,14 +312,14 @@ export default function Home() {
                 <h2 className="text-3xl sm:text-4xl font-light">Let's Connect</h2>
 
                 <div className="space-y-6">
-                  <p className="text-lg sm:text-xl text-muted-foreground leading-relaxed">
+                  <p className="text-justify text-lg sm:text-xl text-muted-foreground leading-relaxed">
                     Always interested in new opportunities, collaborations, and conversations about technology and science.
                   </p>
 
                   <div className="space-y-4">
                     <Link
                       href="mailto:test@example.com"
-                      className="group flex items-center gap-3 text-foreground hover:text-muted-foreground transition-colors duration-300"
+                      className="group flex items-center gap-3 text-foreground hover:text-yellow transition-colors duration-300"
                     >
                       <span className="text-base sm:text-lg">iotheodor@gmail.com</span>
                       <svg
@@ -322,7 +348,7 @@ export default function Home() {
                     <Link
                       key={social.name}
                       href={social.url}
-                      className="group p-4 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-300 hover:shadow-sm"
+                      className="group p-4 border border-border rounded-lg hover:border-yellow/50 transition-all duration-300 hover:shadow-sm"
                     >
                       <div className="space-y-2">
                         <div className="text-foreground group-hover:text-muted-foreground transition-colors duration-300">
