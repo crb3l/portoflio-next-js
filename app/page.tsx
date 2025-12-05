@@ -220,12 +220,21 @@ export default function Home() {
 
               <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
                 {[
+                  // {
+                  //   title: "Experimental Clothing Using 3D Printers",
+                  //   excerpt: "Lessons learned from building and maintaining design systems across multiple products.",
+                  //   date: "Ongoing",
+                  //   // readTime: "8 min",
+                  // },
+
                   {
-                    title: "Experimental Clothing Using 3D Printers",
-                    excerpt: "Lessons learned from building and maintaining design systems across multiple products.",
+                    title: "Vehicle Route Optimization",
+                    excerpt: "Full-stack application for vehicle route problems. It finds the most optimal route for vehicles to travel using VROOM + OSRM for the VRP engine, Python for the backend and React on the frontend.",
                     date: "Ongoing",
+                    url: "https://github.com/crb3l/route-optimizer"
                     // readTime: "8 min",
                   },
+
                   {
                     title: "Tattoo Portfolio",
                     excerpt: "Simple tattoo portfolio website made for a renowned tatoo artist.",
